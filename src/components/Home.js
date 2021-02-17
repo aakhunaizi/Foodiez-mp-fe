@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { StyledTitle } from "../styles";
 import CreateCategoryButton from "./buttons/CreateButton";
 
@@ -17,6 +18,7 @@ const Home = () => {
             alt="logo"
           />
         </StyledTitle>
+        <Link to ="/categories">
         <button
           type="button"
           class="btn btn-dark btn-lg"
@@ -24,6 +26,7 @@ const Home = () => {
         >
           Enter
         </button>
+        </Link>
       </div>
     </div>
   );

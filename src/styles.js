@@ -42,6 +42,7 @@ export const ListWrapper = styled.div`
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
+  margin-top:80px;
 `;
 
 export const ProductWrapper = styled.div`

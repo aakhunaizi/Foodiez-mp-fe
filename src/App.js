@@ -7,6 +7,8 @@ import { ThemeProvider } from "styled-components";
 import NavBar from "./components/NavBar";
 import CategoryList from "./components/categoryList";
 import Home from "./components/Home";
+import { Route } from "react-router";
+import Routes from "./components/Routes";
 
 // Data
 
@@ -39,8 +41,7 @@ function App() {
           <title>Foodiez</title>
         </Helmet>
         <GlobalStyle />
-        
-        <CategoryList/>
+        <Routes/>
       </ThemeProvider>
     </div>
   );

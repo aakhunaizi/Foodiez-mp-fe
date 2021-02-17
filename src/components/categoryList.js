@@ -7,9 +7,9 @@ import SearchBar from "./SearchBar";
 import { useSelector } from "react-redux";
 import LoadingScreen from "./Loading.js";
 import CreateCategoryButton from "./buttons/CreateButton";
+import { Link } from "react-router-dom";
 
-const CategoryList = () => {
-  const categories = useSelector((state) => state.categories.categories);
+const CategoryList = ({categories}) => {
   const loading = useSelector((state) => state.categories.loading);
   const [query, setQuery] = useState("");
 
@@ -23,6 +23,15 @@ const CategoryList = () => {
 
   return (
     <div>
+        <Link to = "/create/category">
+        <button
+          type="button"
+          class="btn btn-dark "
+          style={{ position: "absolute", left: "650px", top: "150px" ,  }}
+        >
+          Create Category
+        </button>
+        </Link>
         <SearchBar setQuery={setQuery} />
       <ListWrapper>{categoryList}</ListWrapper>
        

@@ -23,6 +23,15 @@ const NavBar = (props) => {
       )}
 
       <div className="navbar-nav ml-auto">
+      <NavProduct
+          to="/categories"
+          className="nav-item"
+          
+          style={{ padding: "0.25em 1em",textDecoration: "none" , }}
+        >
+          categories
+        </NavProduct>
+        
         <NavProduct
           to="/ingredients"
           className="nav-item"
@@ -38,6 +47,8 @@ const NavBar = (props) => {
         >
           recipes
         </NavProduct>
+
+        
         <ThemeButton className="nav-item" onClick={props.toggleTheme}>
           {props.currentTheme === "light" ? "Dark" : "Light"} Mode
         </ThemeButton>
