@@ -2,10 +2,10 @@
 import { GlobalStyle } from "./styles";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import NavBar from "./components/NavBar";
 // Components
 import { ThemeProvider } from "styled-components";
-import Routes from "./components/Routes";
+
+import CategoryList from "./components/categoryList";
 
 // Data
 
@@ -36,8 +36,9 @@ function App() {
         <title>Foodiez</title>
       </Helmet>
       <GlobalStyle />
-      <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
-      <Routes />
+      
+      <CategoryList />
+      
     </ThemeProvider>
   );
 }
