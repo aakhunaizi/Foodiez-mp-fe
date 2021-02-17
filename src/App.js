@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import { ThemeProvider } from "styled-components";
 
 import CategoryList from "./components/categoryList";
+import Home from "./components/Home";
 
 // Data
 
@@ -36,9 +37,7 @@ function App() {
         <title>Foodiez</title>
       </Helmet>
       <GlobalStyle />
-      
-      <CategoryList />
-      
+      <Home />
     </ThemeProvider>
   );
 }

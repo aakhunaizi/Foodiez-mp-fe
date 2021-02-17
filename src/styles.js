@@ -42,7 +42,6 @@ export const ListWrapper = styled.div`
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
-
 `;
 
 export const ProductWrapper = styled.div`
@@ -162,4 +161,17 @@ export const ShopButtonStyled = styled.button`
   color: palevioletred;
   padding: 0.25em 1em;
   margin-left: 6%;
+`;
+
+export const StyledTitle = styled.h1`
+  aligncontent: center;
+  font-weight: bold;
+  color: #f8f9fc;
+  font-size: 100px;
+  position: absolute;
+  bottom: 58%;
+  color: #d5d5d5;
+  letter-spacing: 0.05em;
+  text-shadow: 4px 4px 0px #2c2c2c, 7px 7px 0px rgba(0, 0, 0, 0.2);
+  margin-left: 38%;
 `;
