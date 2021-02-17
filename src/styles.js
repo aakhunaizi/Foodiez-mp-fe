@@ -42,7 +42,7 @@ export const ListWrapper = styled.div`
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  margin-top:80px;
+  margin-top: 80px;
 `;
 
 export const ProductWrapper = styled.div`
@@ -68,6 +68,7 @@ export const SearchBarStyled = styled.input`
 
 export const ShopImage = styled.img`
   display: block;
+  margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
@@ -100,8 +101,8 @@ export const LogoLight = styled(Link)`
 `;
 
 export const NavProduct = styled(NavLink)`
-  color: grey;
-   
+  color: black;
+
   &.active {
     color: red;
   }
@@ -178,4 +179,6 @@ export const StyledTitle = styled.h1`
   margin-left: 38%;
 `;
 
-
+export const NavBarContainer = styled.div`
+  background-color: #ffd886;
+`;

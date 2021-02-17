@@ -9,7 +9,7 @@ import LoadingScreen from "./Loading.js";
 import CreateCategoryButton from "./buttons/CreateButton";
 import { Link } from "react-router-dom";
 
-const CategoryList = ({categories}) => {
+const CategoryList = ({ categories }) => {
   const loading = useSelector((state) => state.categories.loading);
   const [query, setQuery] = useState("");
 
@@ -23,18 +23,17 @@ const CategoryList = ({categories}) => {
 
   return (
     <div>
-        <Link to = "/create/category">
+      <Link to="/create/category">
         <button
           type="button"
           class="btn btn-dark "
-          style={{ position: "absolute", left: "650px", top: "150px" ,  }}
+          style={{ position: "absolute", left: "900px", top: "150px" }}
         >
           Create Category
         </button>
-        </Link>
-        <SearchBar setQuery={setQuery} />
+      </Link>
+      <SearchBar setQuery={setQuery} />
       <ListWrapper>{categoryList}</ListWrapper>
-       
     </div>
   );
 };
