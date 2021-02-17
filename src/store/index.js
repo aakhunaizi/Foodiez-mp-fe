@@ -1,7 +1,15 @@
-import axios from "axios";
+import { createStore, compose, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
-const instance = axios.create({
-  baseURL: "http://localhost:8000",
-});
+import reducer from "../store/reducers/";
 
-export default instance;
+// Actions
+import { fetchCategories } from "./actions/categoryActions";
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+
+store.dispatch(fetchCategories());
+
+export default store;
