@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 // Components
 import { ThemeProvider } from "styled-components";
-
+import NavBar from "./components/NavBar";
 import CategoryList from "./components/categoryList";
 import Home from "./components/Home";
 
@@ -32,13 +32,17 @@ function App() {
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
 
   return (
-    <ThemeProvider theme={theme[currentTheme]}>
-      <Helmet>
-        <title>Foodiez</title>
-      </Helmet>
-      <GlobalStyle />
-      <Home />
-    </ThemeProvider>
+    <div>
+      <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
+      <ThemeProvider theme={theme[currentTheme]}>
+        <Helmet>
+          <title>Foodiez</title>
+        </Helmet>
+        <GlobalStyle />
+        
+        <CategoryList/>
+      </ThemeProvider>
+    </div>
   );
 }
 

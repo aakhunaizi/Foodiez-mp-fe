@@ -87,19 +87,20 @@ export const Title = styled.h1`
 export const LogoDark = styled(Link)`
   padding: "0.30em 1em";
   img {
-    width: 15%;
+    width: 30%;
   }
 `;
 
 export const LogoLight = styled(Link)`
   padding: "0.30em 1em";
   img {
-    width: 15%;
+    width: 30%;
   }
 `;
 
 export const NavProduct = styled(NavLink)`
-  color: ${(props) => props.theme.mainColor};
+  color: grey;
+   
   &.active {
     color: red;
   }
@@ -175,3 +176,5 @@ export const StyledTitle = styled.h1`
   text-shadow: 4px 4px 0px #2c2c2c, 7px 7px 0px rgba(0, 0, 0, 0.2);
   margin-left: 38%;
 `;
+
+

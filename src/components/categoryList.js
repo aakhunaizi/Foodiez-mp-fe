@@ -3,6 +3,7 @@ import { ListWrapper } from "../styles";
 // Components
 import CategoryItem from "./categoryItem";
 import { useState } from "react";
+import SearchBar from "./SearchBar";
 import { useSelector } from "react-redux";
 import LoadingScreen from "./Loading.js";
 import CreateCategoryButton from "./buttons/CreateButton";
@@ -22,7 +23,9 @@ const CategoryList = () => {
 
   return (
     <div>
+        <SearchBar setQuery={setQuery} />
       <ListWrapper>{categoryList}</ListWrapper>
+       
     </div>
   );
 };

@@ -4,9 +4,9 @@ import { LoadingWrapper, Title } from "../styles";
 const LoadingScreen = () => {
   return (
     <>
-      <LoadingWrapper>
+      <LoadingWrapper >
         <Title style={{ marginRight: "2%" }}>Loading Categories</Title>
-        <PulseLoader color="red" size={300} />
+        <PulseLoader  color="black" size={30} />
       </LoadingWrapper>
     </>
   );
