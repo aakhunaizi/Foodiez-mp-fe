@@ -1,42 +1,41 @@
 // Styling
 import { ListWrapper } from "../styles";
 // Components
-import CategoryItem from "./categoryItem";
+import IngredientItem from "./IngredientItem";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import { useSelector } from "react-redux";
 import LoadingScreen from "./Loading.js";
-import CreateCategoryButton from "./buttons/CreateButton";
+//import CreateIngredientButton from "./buttons/CreateButton";
 import { Link } from "react-router-dom";
 
-const CategoryList = ({ categories }) => {
-  
-  const loading = useSelector((state) => state.categories.loading);
+const IngredientList = ({ ingredients }) => {
+  const loading = useSelector((state) => state.ingredients.loading);
   const [query, setQuery] = useState("");
 
   if (loading) return <LoadingScreen />;
 
-  const categoryList = categories
-    .filter((category) =>
-      category.name.toLowerCase().includes(query.toLowerCase())
+  const ingredientList = ingredients
+    .filter((ingredient) =>
+      ingredient.name.toLowerCase().includes(query.toLowerCase())
     )
-    .map((category) => <CategoryItem category={category} key={category.id} />);
-
+    .map((ingredient) => <IngredientItem ingredient={ingredient} key={ingredient.id} />);
+    
   return (
     <div>
-      <Link to="/create/category">
+      <Link to="/create/ingredient">
         <button
           type="button"
           class="btn btn-dark "
           style={{ position: "absolute", left: "900px", top: "150px" }}
         >
-          Create Category
+          Create Ingredient
         </button>
       </Link>
       <SearchBar setQuery={setQuery} />
-      <ListWrapper>{categoryList}</ListWrapper>
+      <ListWrapper>{ingredientList}</ListWrapper>
     </div>
   );
 };
 
-export default CategoryList;
+export default IngredientList;
