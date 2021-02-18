@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Home from "./Home";
 //import ProductDetail from "./ProductDetail";
 import CategoryForm from "./CategoryForm";
-import CategoryList from "./categoryList";
+import CategoryList from "./CategoryList";
 import IngredientList from "./IngredientList";
 import CategoryDetail from "./CategoryDetail";
 import IngredientForm from "./IngredientForm";

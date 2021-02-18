@@ -1,7 +1,7 @@
 // Styling
 import { ListWrapper } from "../styles";
 // Components
-import CategoryItem from "./categoryItem";
+import CategoryItem from "./CategoryItem";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import { useSelector } from "react-redux";
