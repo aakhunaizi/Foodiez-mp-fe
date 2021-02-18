@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { NavBarContainer, ShopImage, StyledTitle } from "../styles";
-import CreateCategoryButton from "./buttons/CreateButton";
+import { ShopImage } from "../styles";
 
 const Home = () => {
   return (
@@ -13,7 +12,7 @@ const Home = () => {
       <Link to="/categories">
         <button
           type="button"
-          class="btn btn-dark btn-lg"
+          className="btn btn-dark btn-lg"
           style={{ position: "absolute", left: "940px", top: "300px" }}
         >
           Enter

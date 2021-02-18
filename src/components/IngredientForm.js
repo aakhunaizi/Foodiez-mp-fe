@@ -1,48 +1,51 @@
 import { useState } from "react";
 import { BackButtonStyled, CreateButtonStyled, ListWrapper } from "../styles";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { createCategory } from "../store/actions/categoryActions";
+import { createIngredient } from "../store/actions/ingredientActions";
 import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
-const CategoryForm = () => {
+const IngredientForm = () => {
   const history = useHistory();
 
   const dispatch = useDispatch();
 
-  const [category, setCategory] = useState({
+  const { categoryId } = useParams();
+
+  const [ingredient, setIngredient] = useState({
+    categoryId: categoryId,
     name: "",
     image: "",
   });
 
   const handleChange = (event) => {
-    setCategory({ ...category, [event.target.name]: event.target.value });
+    setIngredient({ ...ingredient, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(createCategory(category));
-    history.push("/categories");
+    dispatch(createIngredient(ingredient));
+    history.push("/ingredients");
   };
 
   const handleImage = (event) =>
-    setCategory({ ...category, image: event.target.files[0] });
+    setIngredient({ ...ingredient, image: event.target.files[0] });
 
   return (
     <>
       <Helmet>
-        <title>Create Category</title>
+        <title>Create Ingredient</title>
       </Helmet>
-      <ListWrapper> Create Category </ListWrapper>
+      <ListWrapper> Create Ingredient </ListWrapper>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name</label>
           <input
             type="text"
             name="name"
-            placeholder="Enter category name"
+            placeholder="Enter ingredient name"
             className="form-control"
-            value={category.name}
+            value={ingredient.name}
             onChange={handleChange}
           />
         </div>
@@ -51,13 +54,13 @@ const CategoryForm = () => {
           <input
             type="file"
             name="image"
-            placeholder="Enter category image url"
+            placeholder="Enter ingredient image url"
             className="form-control"
             onChange={handleImage}
           />
         </div>
         <CreateButtonStyled onSubmit={handleSubmit}>Create</CreateButtonStyled>
-        <Link to="/categories">
+        <Link to="/ingredients">
           <BackButtonStyled>Back</BackButtonStyled>
         </Link>
       </form>
@@ -65,4 +68,4 @@ const CategoryForm = () => {
   );
 };
 
-export default CategoryForm;
+export default IngredientForm;

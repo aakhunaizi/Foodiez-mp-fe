@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 // Styling
 import { ProductWrapper } from "../styles";
 
-const CategoryItem = ({category}) => {
-  
-
+const CategoryItem = ({ category }) => {
   return (
     <ProductWrapper>
       <Link to={`/categories/${category.slug}/`}>
@@ -15,7 +13,6 @@ const CategoryItem = ({category}) => {
       </Link>
 
       <p>{category.name}</p>
-      
     </ProductWrapper>
   );
 };

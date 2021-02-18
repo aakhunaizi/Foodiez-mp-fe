@@ -6,11 +6,9 @@ import { useState } from "react";
 import SearchBar from "./SearchBar";
 import { useSelector } from "react-redux";
 import LoadingScreen from "./Loading.js";
-import CreateCategoryButton from "./buttons/CreateButton";
 import { Link } from "react-router-dom";
 
 const CategoryList = ({ categories }) => {
-  
   const loading = useSelector((state) => state.categories.loading);
   const [query, setQuery] = useState("");
 
@@ -27,7 +25,7 @@ const CategoryList = ({ categories }) => {
       <Link to="/create/category">
         <button
           type="button"
-          class="btn btn-dark "
+          className="btn btn-dark "
           style={{ position: "absolute", left: "900px", top: "150px" }}
         >
           Create Category
