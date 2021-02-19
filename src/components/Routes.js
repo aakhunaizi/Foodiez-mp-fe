@@ -8,6 +8,7 @@ import IngredientList from "./IngredientList";
 import CategoryDetail from "./CategoryDetail";
 import IngredientForm from "./IngredientForm";
 import IngredientDetail from "./IngredientDetail";
+import RecipeDetail from "./RecipeDetail";
 import RecipeList from "./RecipeList";
 
 const Routes = () => {
@@ -27,7 +28,9 @@ const Routes = () => {
       <Route path="/ingredients/:ingredientSlug">
         <IngredientDetail ingredients={ingredients} />
       </Route>
-
+      <Route path="/recipes/:recipeSlug">
+        <RecipeDetail recipes={recipes} />
+      </Route>
       <Route path="/ingredients">
         <IngredientList ingredients={ingredients} />
       </Route>
@@ -35,8 +38,6 @@ const Routes = () => {
       <Route path="/categories/:categorySlug">
         <CategoryDetail ingredients={ingredients} />
       </Route>
-
-      
 
       <Route path="/categories">
         <CategoryList categories={categories} />

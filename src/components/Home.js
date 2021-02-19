@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { ShopImage } from "../styles";
+import { ShopImage, Title } from "../styles";
 
 const Home = () => {
   return (
     <div>
+      <Title>Foodiez</Title>
+      <Title>Recipes made "ez"</Title>
       <ShopImage
         src="https://crossware.co.nz/wp-content/uploads/2020/09/cute-food-dancing-gif.gif"
         alt="homepage image"
