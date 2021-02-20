@@ -122,15 +122,15 @@ export const AddButtonStyled = styled.button`
 export const CreateButtonStyled = styled.button`
   background: transparent;
   border-radius: 3px;
-  border: 2px solid ${(props) => props.theme.pink};
-  color: palevioletred;
+  border: 2px solid green;
+  color: green;
   margin: 0 1em;
   padding: 0.25em 1em;
   margin: auto;
   display: block;
   &:hover {
     color: ${(props) => props.theme.mainColor};
-    background-color: ${(props) => props.theme.backgroundColor};
+    background-color: green;
   }
 `;
 
@@ -146,7 +146,7 @@ export const BackButtonStyled = styled.button`
   margin-top: 2%;
   &:hover {
     color: ${(props) => props.theme.mainColor};
-    background-color: ${(props) => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.pink};
   }
 `;
 

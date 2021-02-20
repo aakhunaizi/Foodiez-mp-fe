@@ -56,6 +56,7 @@ const CategoryForm = () => {
             onChange={handleImage}
           />
         </div>
+
         <CreateButtonStyled onSubmit={handleSubmit}>Create</CreateButtonStyled>
         <Link to="/categories">
           <BackButtonStyled>Back</BackButtonStyled>

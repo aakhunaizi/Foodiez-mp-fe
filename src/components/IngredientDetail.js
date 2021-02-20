@@ -2,10 +2,8 @@ import { useParams, Redirect, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
 // Styling
-import { DetailWrapper, Title } from "../styles";
-import RecipeList from "./RecipeList";
-import LoadingScreen from "./Loading.js";
-
+import { BackButtonStyled, DetailWrapper, Title } from "../styles";
+import RecipeListNoCreate from "./RecipeListNoCreate";
 
 const IngredientDetail = () => {
   const { ingredientSlug } = useParams();
@@ -15,24 +13,27 @@ const IngredientDetail = () => {
       (_ingredient) => _ingredient.slug === ingredientSlug
     )
   );
-  const loadingRecipes = useSelector((state) => state.recipes.loading);
-  const loadingIngredients = useSelector((state) => state.ingredients.loading);
-
 
   const recipes = ingredient.recipes.map((recipe) =>
     allRecipes.find((_recipe) => _recipe.id === recipe.id)
   );
   if (!ingredient) return <Redirect to="/ingredients" />;
-  if ( loadingRecipes &&loadingIngredients ) return <LoadingScreen />;
+
   return (
     <DetailWrapper>
       <Helmet>
         <title>{ingredient.name}</title>
       </Helmet>
-      <Link to="/ingredients">Back to Ingredients</Link>
-      <h1 style={{ marginBottom: "2%", marginLeft: "3%" }}>
+      <h1
+        style={{
+          marginTop: "2%",
+          marginLeft: "2.5%",
+          marginBottom: "2%",
+        }}
+      >
         {ingredient.name}
       </h1>
+      <Link to="/ingredients"></Link>
       <img
         src={ingredient.image}
         alt={ingredient.name}
@@ -42,8 +43,16 @@ const IngredientDetail = () => {
           width: "20%",
         }}
       />
+
       <Title>Can be used to make</Title>
-      <RecipeList recipes={recipes} />
+      <RecipeListNoCreate recipes={recipes} />
+      <Link to="/ingredients">
+        <BackButtonStyled
+          style={{ float: "left", marginLeft: "7%", marginTop: "-5%" }}
+        >
+          Back
+        </BackButtonStyled>
+      </Link>
     </DetailWrapper>
   );
 };

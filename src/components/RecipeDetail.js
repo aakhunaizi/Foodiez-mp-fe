@@ -2,7 +2,7 @@ import { useParams, Redirect, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
 // Styling
-import { DetailWrapper, Title } from "../styles";
+import { BackButtonStyled, DetailWrapper, Title } from "../styles";
 import IngredientList from "../components/IngredientList";
 
 const RecipeDetail = () => {
@@ -22,8 +22,9 @@ const RecipeDetail = () => {
       <Helmet>
         <title>{recipe.name}</title>
       </Helmet>
-      <Link to="/recipes">Back to Recipes</Link>
-      <h1 style={{ marginBottom: "2%", marginLeft: "3%" }}>{recipe.name}</h1>
+      <h1 style={{ marginTop: "2%", marginLeft: "2.5%", marginBottom: "2%" }}>
+        {recipe.name}
+      </h1>
       <Title>Directions </Title>
       <img
         src={recipe.image}
@@ -34,6 +35,7 @@ const RecipeDetail = () => {
           width: "20%",
         }}
       />
+
       <iframe
         style={{ marginLeft: "5%", marginBottom: "3%" }}
         title="Tiramisu"
@@ -41,6 +43,13 @@ const RecipeDetail = () => {
         height="500"
         src={recipe.video}
       ></iframe>
+      <Link to="/recipes">
+        <BackButtonStyled
+          style={{ float: "right", marginLeft: "7%", marginTop: "-5%" }}
+        >
+          Back
+        </BackButtonStyled>
+      </Link>
       <Title>Ingredients </Title>
       <IngredientList ingredients={ingredients} />
     </DetailWrapper>

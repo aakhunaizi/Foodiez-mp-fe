@@ -5,44 +5,43 @@ import { useDispatch } from "react-redux";
 import { createRecipe } from "../store/actions/recipeActions";
 import { useHistory } from "react-router-dom";
 import { Helmet } from "react-helmet";
-const RecipeForm = ({ingredients}) => {
+const RecipeForm = ({ ingredients }) => {
   const history = useHistory();
 
   const dispatch = useDispatch();
 
-
   const [recipe, setRecipe] = useState({
     name: "",
     image: "",
-    video:"",
-    ingredients:[],
+    video: "",
   });
+
+  const [_ingredients, setIngredients] = useState([]);
 
   const handleChange = (event) => {
     setRecipe({ ...recipe, [event.target.name]: event.target.value });
   };
 
+  const handleOption = (event) => {
+    console.log(event.target.value);
+    setIngredients({
+      ..._ingredients,
+      ingredients: [event.target.value],
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(createRecipe(recipe));
+    dispatch(createRecipe({ ...recipe, _ingredients }));
     history.push("/recipes");
   };
 
   const handleImage = (event) =>
     setRecipe({ ...recipe, image: event.target.files[0] });
 
-  const allIngredients =(ingredients)=>{
-      return ingredients.forEach(ingredient => { 
-        
-     <option>{ingredient.name}</option>
-     
-        
-    });
-  }
-
-  
-
-  
+  const allIngredients = ingredients.map((ingredient) => (
+    <option value={ingredient.id}>{ingredient.name}</option>
+  ));
 
   return (
     <>
@@ -84,17 +83,23 @@ const RecipeForm = ({ingredients}) => {
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlSelect2"> Select Ingredients </label>
-            <br/>
-            
-            <select multiple class="form-control" id="exampleFormControlSelect2">
-            <option>{allIngredients (ingredients)}</option> 
-              
-            </select>
-            <span class="help-block">Use ctrl/command to select multiple ingredients </span>
+          <label for="exampleFormControlSelect2"> Select Ingredients </label>
+          <br />
+          <select
+            multiple
+            class="form-control"
+            name="ingredients"
+            id="exampleFormControlSelect2"
+            onChange={handleOption}
+          >
+            {allIngredients}
+          </select>
+          <span className="help-block">
+            Use ctrl/command to select multiple ingredients
+          </span>
         </div>
         <CreateButtonStyled onSubmit={handleSubmit}>Create</CreateButtonStyled>
-        <Link to="/ingredients">
+        <Link to="/recipes">
           <BackButtonStyled>Back</BackButtonStyled>
         </Link>
       </form>

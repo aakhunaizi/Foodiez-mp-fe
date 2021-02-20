@@ -2,15 +2,12 @@ import { useParams, Redirect, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
 // Styling
-import { DetailWrapper } from "../styles";
+import { BackButtonStyled, DetailWrapper } from "../styles";
 import IngredientList from "./IngredientList";
-import LoadingScreen from "./Loading.js";
 
 const CategoryDetail = () => {
   const { categorySlug } = useParams();
-  
-  const loadingIngredients = useSelector((state) => state.ingredients.loading);
-  
+
   const allIngredients = useSelector((state) => state.ingredients.ingredients);
   const category = useSelector((state) =>
     state.categories.categories.find(
@@ -22,16 +19,15 @@ const CategoryDetail = () => {
     allIngredients.find((_ingredient) => _ingredient.id === ingredient.id)
   );
   if (!category) return <Redirect to="/categories" />;
-  if ( loadingIngredients ) return <LoadingScreen />;
 
-  
   return (
     <DetailWrapper>
       <Helmet>
         <title>{category.name}</title>
       </Helmet>
-      <Link to="/categories">Back to Categories</Link>
-      <h1 style={{ marginBottom: "2%", marginLeft: "3%" }}>{category.name}</h1>
+      <h1 style={{ marginBottom: "2%", marginLeft: "2.5%", marginTop: "2%" }}>
+        {category.name}
+      </h1>
       <img
         src={category.image}
         alt={category.name}
@@ -50,6 +46,13 @@ const CategoryDetail = () => {
         >
           Create Ingredient
         </button>
+      </Link>
+      <Link to="/categories">
+        <BackButtonStyled
+          style={{ float: "left", marginLeft: "7%", marginTop: "-5%" }}
+        >
+          Back
+        </BackButtonStyled>
       </Link>
     </DetailWrapper>
   );

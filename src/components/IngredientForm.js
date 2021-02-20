@@ -60,7 +60,7 @@ const IngredientForm = () => {
           />
         </div>
         <CreateButtonStyled onSubmit={handleSubmit}>Create</CreateButtonStyled>
-        <Link to="/ingredients">
+        <Link to="/ingredients" style={{ textDecoration: "none" }}>
           <BackButtonStyled>Back</BackButtonStyled>
         </Link>
       </form>

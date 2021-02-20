@@ -13,7 +13,6 @@ import RecipeList from "./RecipeList";
 import LoadingScreen from "./Loading.js";
 import RecipeForm from "./RecipeForm";
 
-
 const Routes = () => {
   const categories = useSelector((state) => state.categories.categories);
   const ingredients = useSelector((state) => state.ingredients.ingredients);
@@ -22,11 +21,8 @@ const Routes = () => {
   const loadingIngredients = useSelector((state) => state.ingredients.loading);
   const loadingRecipes = useSelector((state) => state.recipes.loading);
 
-  if (loadingCategories && loadingIngredients && loadingRecipes) return <LoadingScreen />;
-
-
-
-
+  if (loadingCategories || loadingIngredients || loadingRecipes)
+    return <LoadingScreen />;
 
   return (
     <Switch>
@@ -38,24 +34,22 @@ const Routes = () => {
         <CategoryForm />
       </Route>
       <Route path="/ingredients/:ingredientSlug">
-        <IngredientDetail  />
+        <IngredientDetail />
       </Route>
       <Route path="/recipes/:recipeSlug">
-        <RecipeDetail  />
+        <RecipeDetail />
       </Route>
       <Route path="/ingredients">
         <IngredientList ingredients={ingredients} />
       </Route>
 
       <Route path="/categories/:categorySlug">
-        <CategoryDetail  />
+        <CategoryDetail />
       </Route>
 
       <Route path="/create/recipe">
-        <RecipeForm  ingredients={ingredients} />
+        <RecipeForm ingredients={ingredients} />
       </Route>
-
-
 
       <Route path="/categories">
         <CategoryList categories={categories} />
