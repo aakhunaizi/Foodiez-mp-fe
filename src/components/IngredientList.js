@@ -11,7 +11,7 @@ const IngredientList = ({ ingredients }) => {
   const loading = useSelector((state) => state.ingredients.loading);
   const [query, setQuery] = useState("");
 
-  if (loading) return <LoadingScreen />;
+  //if (loading) return <LoadingScreen />;
 
   const ingredientList = ingredients
     .filter((ingredient) =>

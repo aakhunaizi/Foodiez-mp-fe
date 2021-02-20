@@ -12,7 +12,7 @@ const CategoryList = ({ categories }) => {
   const loading = useSelector((state) => state.categories.loading);
   const [query, setQuery] = useState("");
 
-  if (loading) return <LoadingScreen />;
+  //if (loading) return <LoadingScreen />;
 
   const categoryList = categories
     .filter((category) =>

@@ -10,11 +10,22 @@ import IngredientForm from "./IngredientForm";
 import IngredientDetail from "./IngredientDetail";
 import RecipeDetail from "./RecipeDetail";
 import RecipeList from "./RecipeList";
+import LoadingScreen from "./Loading.js";
+
 
 const Routes = () => {
   const categories = useSelector((state) => state.categories.categories);
   const ingredients = useSelector((state) => state.ingredients.ingredients);
   const recipes = useSelector((state) => state.recipes.recipes);
+  const loadingCategories = useSelector((state) => state.categories.loading);
+  const loadingIngredients = useSelector((state) => state.ingredients.loading);
+  const loadingRecipes = useSelector((state) => state.recipes.loading);
+
+  if (loadingCategories && loadingIngredients && loadingRecipes) return <LoadingScreen />;
+
+
+
+
 
   return (
     <Switch>

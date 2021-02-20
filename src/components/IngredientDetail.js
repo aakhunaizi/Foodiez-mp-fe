@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 // Styling
 import { DetailWrapper, Title } from "../styles";
 import RecipeList from "./RecipeList";
+import LoadingScreen from "./Loading.js";
+
 
 const IngredientDetail = () => {
   const { ingredientSlug } = useParams();
@@ -13,11 +15,15 @@ const IngredientDetail = () => {
       (_ingredient) => _ingredient.slug === ingredientSlug
     )
   );
+  const loadingRecipes = useSelector((state) => state.recipes.loading);
+  const loadingIngredients = useSelector((state) => state.ingredients.loading);
+
 
   const recipes = ingredient.recipes.map((recipe) =>
     allRecipes.find((_recipe) => _recipe.id === recipe.id)
   );
   if (!ingredient) return <Redirect to="/ingredients" />;
+  if ( loadingRecipes && loadingIngredients) return <LoadingScreen />;
   return (
     <DetailWrapper>
       <Helmet>

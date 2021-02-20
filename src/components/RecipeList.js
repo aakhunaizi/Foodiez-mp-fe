@@ -11,7 +11,7 @@ const RecipeList = ({ recipes }) => {
   const loading = useSelector((state) => state.recipes.loading);
   const [query, setQuery] = useState("");
 
-  if (loading) return <LoadingScreen />;
+  //if (loading) return <LoadingScreen />;
 
   const recipeList = recipes
     .filter((recipe) =>
