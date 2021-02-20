@@ -23,7 +23,7 @@ const IngredientDetail = () => {
     allRecipes.find((_recipe) => _recipe.id === recipe.id)
   );
   if (!ingredient) return <Redirect to="/ingredients" />;
-  if ( loadingRecipes && loadingIngredients) return <LoadingScreen />;
+  if ( loadingRecipes &&loadingIngredients ) return <LoadingScreen />;
   return (
     <DetailWrapper>
       <Helmet>

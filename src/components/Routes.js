@@ -11,6 +11,7 @@ import IngredientDetail from "./IngredientDetail";
 import RecipeDetail from "./RecipeDetail";
 import RecipeList from "./RecipeList";
 import LoadingScreen from "./Loading.js";
+import RecipeForm from "./RecipeForm";
 
 
 const Routes = () => {
@@ -37,18 +38,24 @@ const Routes = () => {
         <CategoryForm />
       </Route>
       <Route path="/ingredients/:ingredientSlug">
-        <IngredientDetail ingredients={ingredients} />
+        <IngredientDetail  />
       </Route>
       <Route path="/recipes/:recipeSlug">
-        <RecipeDetail recipes={recipes} />
+        <RecipeDetail  />
       </Route>
       <Route path="/ingredients">
         <IngredientList ingredients={ingredients} />
       </Route>
 
       <Route path="/categories/:categorySlug">
-        <CategoryDetail ingredients={ingredients} />
+        <CategoryDetail  />
       </Route>
+
+      <Route path="/create/recipe">
+        <RecipeForm  ingredients={ingredients} />
+      </Route>
+
+
 
       <Route path="/categories">
         <CategoryList categories={categories} />

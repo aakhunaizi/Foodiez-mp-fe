@@ -4,14 +4,14 @@ import { ListWrapper } from "../styles";
 import RecipeItem from "./RecipeItem";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
-import { useSelector } from "react-redux";
-import LoadingScreen from "./Loading.js";
+import { Link } from "react-router-dom";
+
 
 const RecipeList = ({ recipes }) => {
-  const loading = useSelector((state) => state.recipes.loading);
+ 
   const [query, setQuery] = useState("");
 
-  //if (loading) return <LoadingScreen />;
+
 
   const recipeList = recipes
     .filter((recipe) =>
@@ -23,6 +23,15 @@ const RecipeList = ({ recipes }) => {
 
   return (
     <div>
+      <Link to="/create/recipe">
+        <button
+          type="button"
+          className="btn btn-dark "
+          style={{ position: "absolute", left: "900px", top: "150px" }}
+        >
+          Create Recipe
+        </button>
+      </Link>
       <SearchBar setQuery={setQuery} />
       <ListWrapper>{recipeList}</ListWrapper>
     </div>

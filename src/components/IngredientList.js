@@ -4,14 +4,11 @@ import { ListWrapper } from "../styles";
 import IngredientItem from "./IngredientItem";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
-import { useSelector } from "react-redux";
-import LoadingScreen from "./Loading.js";
+
 
 const IngredientList = ({ ingredients }) => {
-  const loading = useSelector((state) => state.ingredients.loading);
   const [query, setQuery] = useState("");
 
-  //if (loading) return <LoadingScreen />;
 
   const ingredientList = ingredients
     .filter((ingredient) =>

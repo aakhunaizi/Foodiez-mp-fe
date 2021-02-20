@@ -4,16 +4,11 @@ import { ListWrapper } from "../styles";
 import CategoryItem from "./CategoryItem";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
-import { useSelector } from "react-redux";
-import LoadingScreen from "./Loading.js";
+
 import { Link } from "react-router-dom";
 
 const CategoryList = ({ categories }) => {
-  const loading = useSelector((state) => state.categories.loading);
   const [query, setQuery] = useState("");
-
-  //if (loading) return <LoadingScreen />;
-
   const categoryList = categories
     .filter((category) =>
       category.name.toLowerCase().includes(query.toLowerCase())
