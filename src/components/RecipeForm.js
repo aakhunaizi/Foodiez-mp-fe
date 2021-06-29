@@ -14,20 +14,18 @@ const RecipeForm = ({ ingredients }) => {
     name: "",
     image: "",
     video: "",
+    ingredients: [],
   });
 
   const [_ingredients, setIngredients] = useState([]);
-
+ 
   const handleChange = (event) => {
     setRecipe({ ...recipe, [event.target.name]: event.target.value });
   };
 
   const handleOption = (event) => {
-    console.log(event.target.value);
-    setIngredients({
-      ..._ingredients,
-      ingredients: [event.target.value],
-    });
+    recipe.ingredients.push(event.target.value)
+    console.log(recipe.ingredients)
   };
 
   const handleSubmit = (event) => {
@@ -40,7 +38,13 @@ const RecipeForm = ({ ingredients }) => {
     setRecipe({ ...recipe, image: event.target.files[0] });
 
   const allIngredients = ingredients.map((ingredient) => (
-    <option value={ingredient.id}>{ingredient.name}</option>
+    <option
+      key={ingredient.name}
+      value={ingredient.id}
+      onClick={handleOption}
+    >
+      {ingredient.name}
+    </option>
   ));
 
   return (
@@ -82,16 +86,10 @@ const RecipeForm = ({ ingredients }) => {
           />
         </div>
 
-        <div class="form-group">
-          <label for="exampleFormControlSelect2"> Select Ingredients </label>
+        <div className="form-group">
+          <label> Select Ingredients </label>
           <br />
-          <select
-            multiple
-            class="form-control"
-            name="ingredients"
-            id="exampleFormControlSelect2"
-            onChange={handleOption}
-          >
+          <select multiple className="form-control" name="ingredients">
             {allIngredients}
           </select>
           <span className="help-block">

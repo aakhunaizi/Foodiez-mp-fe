@@ -1,6 +1,7 @@
 import { useParams, Redirect, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
+import Loading from "./Loading"
 // Styling
 import { BackButtonStyled, DetailWrapper, Title } from "../styles";
 import IngredientList from "../components/IngredientList";
@@ -8,15 +9,19 @@ import IngredientList from "../components/IngredientList";
 const RecipeDetail = () => {
   const { recipeSlug } = useParams();
   const allIngredients = useSelector((state) => state.ingredients.ingredients);
+  const recipeLoading = useSelector((state) => state.recipes.loading)
+
   const recipe = useSelector((state) =>
-    state.recipes.recipes.find((_recipe) => _recipe.slug === recipeSlug)
+  state.recipes.recipes.find((_recipe) => _recipe.slug === recipeSlug)
   );
-
+  
   const ingredients = recipe.ingredients.map((ingredient) =>
-    allIngredients.find((_ingredient) => _ingredient.id === ingredient.id)
+  allIngredients.find((_ingredient) => _ingredient.id === ingredient.id)
   );
-
+  
   if (!recipe) return <Redirect to="/recipe" />;
+  if (recipeLoading) return <Loading/>
+  
   return (
     <DetailWrapper>
       <Helmet>
